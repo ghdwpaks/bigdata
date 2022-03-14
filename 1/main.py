@@ -1,5 +1,5 @@
 import csv
-
+import math
 
 #2. 데이터 집합 불러오기
 table = []
@@ -17,7 +17,7 @@ for i in range(len(table)) :
 table = table_sort
 for i in range(len(table)) :
     table[i].sort()
-print("table :",table)
+#print("table :",table)
 
 #평균
 mean = []
@@ -32,6 +32,23 @@ for i in range(len(table)) :
         
 print("mean :",mean)
 print("median :",median)
+
+#분산
+var = []
+for i in range(len(mean)) :
+    tmp = 0
+    for j in range(len(table[i])) :
+        tmp += abs(table[i][j]-mean[i])**2
+    var.append(tmp/len(table[i]))
+print("var :",var)
+
+#표준편차 Standard deviation
+StandDev = []
+
+for i in range(len(var)) :
+    StandDev.append(math.sqrt(var[i]))
+print("StandDev :",StandDev)
+
 
 
 
